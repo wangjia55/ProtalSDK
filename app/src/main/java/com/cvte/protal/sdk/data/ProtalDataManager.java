@@ -1,5 +1,6 @@
 package com.cvte.protal.sdk.data;
 
+
 /**
  * Package : com.cvte.protal.sdk.data
  * Author : jacob
@@ -7,4 +8,9 @@ package com.cvte.protal.sdk.data;
  * Description : 这个类是用来统一调用GET，POST，PATCH，DELETE方法的对外功能入口
  */
 public class ProtalDataManager {
+    int type = 1; //1 - json
+
+
+
+
 }
