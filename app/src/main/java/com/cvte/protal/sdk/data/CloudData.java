@@ -6,5 +6,8 @@ package com.cvte.protal.sdk.data;
  * Date : 14-12-1
  * Description : 这个类是用来xxx
  */
-public class CloudData {
+public interface CloudData<T> {
+    public Class<T> getClassType();
+
+    public void setId(String id);
 }

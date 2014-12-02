@@ -14,7 +14,7 @@ import java.util.Map;
  */
 public interface CloudMethod {
     /**
-     * 通过Volley执行网络请求操作
+     * 通过Volley执行网络请求操作,具体实现参考BaseProtalMethodImpl
      */
     public void execute(ProtalResponseListener listener);
 
@@ -27,6 +27,8 @@ public interface CloudMethod {
      * 添加网络请求的Body部分
      */
     public CloudMethod addBody(JSONObject body);
+
+
 
 
     /**

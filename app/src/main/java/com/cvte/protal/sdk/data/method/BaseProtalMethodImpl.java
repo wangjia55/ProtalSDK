@@ -22,29 +22,40 @@ public abstract class BaseProtalMethodImpl implements CloudMethod {
 
     private String mServerIp;
     private String mAppKey;
+    private String mAccessToken;
     private JSONObject mRequestBody;
     private Map<String, String> mHeaders;
     private ProtalResponseListener mProtalListener;
     private static final String ACCESS_TOKEN = "accessToken";
     private static final String APPLICATION = "application";
 
+    protected Relation mRelation;
     protected static final String SERVER_URL = "";
     protected StringBuilder mSBurl = new StringBuilder(SERVER_URL);
 
 
-    public BaseProtalMethodImpl(String severIp, String appKey) {
+    public BaseProtalMethodImpl(String severIp, String appKey,String accessToken) {
         mServerIp = severIp;
         mAppKey = appKey;
+        mAccessToken = accessToken;
     }
 
+
+    /**
+     * 添加请求的头信息，请注意：不是所有的请求都需要header信息
+     */
+    @Override
     public BaseProtalMethodImpl addHeader(Map<String, String> headers) {
         mHeaders = headers;
         mHeaders.put(APPLICATION, mAppKey);
-        mHeaders.put(ACCESS_TOKEN, "");
+        mHeaders.put(ACCESS_TOKEN, mAccessToken);
         return this;
     }
 
 
+    /**
+     * 添加请求的body信息，请注意：不是所有的请求都需要body信息
+     */
     @Override
     public BaseProtalMethodImpl addBody(JSONObject body) {
         mRequestBody = body;
@@ -76,6 +87,10 @@ public abstract class BaseProtalMethodImpl implements CloudMethod {
         };
     }
 
+
+    /**
+     * 核心方法：通过Volley的API进行网络请求
+     */
     @Override
     public void execute(ProtalResponseListener listener) {
         if (listener == null) {
@@ -95,17 +110,15 @@ public abstract class BaseProtalMethodImpl implements CloudMethod {
         queue.add(jsonRequest);
     }
 
-
     /**
      * 获取Request的方法类型，通过子类实现该方法获取
      */
     protected abstract int getRestMethod();
 
-
     /**
      * 获取网络请求的路径URL
      */
-    protected  void addPath(String name, String id){
+    protected void addPath(String name, String id) {
         mSBurl.append(name).append("/").append(id);
     }
 

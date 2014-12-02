@@ -36,9 +36,4 @@ public abstract class ProtalResponseListener<T extends CloudData> implements Pro
     public void patch(ProtalResponse response) {
 
     }
-
-    @Override
-    public void Exception(Exception e) {
-
-    }
 }

@@ -12,8 +12,8 @@ import com.cvte.protal.sdk.data.method.BaseProtalMethodImpl;
  */
 public class Post extends BaseProtalMethodImpl implements PostMethod {
 
-    public Post(String severIp, String appKey) {
-        super(severIp, appKey);
+    public Post(String severIp, String appKey, String accessToken) {
+        super(severIp, appKey, accessToken);
     }
 
     @Override
@@ -26,9 +26,16 @@ public class Post extends BaseProtalMethodImpl implements PostMethod {
         return this;
     }
 
-    @Override
-    public PostMethod setRelation(Relation relation) {
-
+    public PostMethod postSubData(Class parentClass, String parentId, CloudData subData) {
+        addPath(parentClass.getSimpleName().toLowerCase(), parentId);
+        addPath(subData.getClass().getSimpleName().toLowerCase(), null);
         return this;
     }
+
+    @Override
+    public PostMethod setRelation(Relation relation) {
+        super.mRelation = relation;
+        return this;
+    }
+
 }
