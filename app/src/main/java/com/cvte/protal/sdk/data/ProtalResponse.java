@@ -7,7 +7,30 @@ package com.cvte.protal.sdk.data;
  * Description : 这个类是用来xxx
  */
 public class ProtalResponse {
-    public int code;
-    public String url;
-    public String message;
+    /**
+     * 服务器返回的操作码
+     */
+    private int code;
+
+    /**
+     * 请求服务器的URL
+     */
+    private String url;
+
+    /**
+     * 服务器返回的异常信息
+     */
+    private String message;
+
+    public int getCode() {
+        return code;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public String getMessage() {
+        return message;
+    }
 }

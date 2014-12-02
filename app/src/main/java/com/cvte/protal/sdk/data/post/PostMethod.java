@@ -1,8 +1,6 @@
 package com.cvte.protal.sdk.data.post;
 
-import com.android.volley.Request;
-import com.cvte.protal.sdk.data.listener.ProtalResponseListener;
-import com.cvte.protal.sdk.data.method.BaseProtalMethod;
+import com.cvte.protal.sdk.data.method.CloudMethod;
 
 /**
  * Package : com.cvte.protal.sdk.data.post
@@ -10,14 +8,11 @@ import com.cvte.protal.sdk.data.method.BaseProtalMethod;
  * Date : 14-12-1
  * Description : 这个类是用来xxx
  */
-public class PostMethod extends BaseProtalMethod {
-    @Override
-    public void execute(ProtalResponseListener listener) {
-        super.execute(listener);
-    }
+ public interface PostMethod extends CloudMethod {
 
-    @Override
-    protected int getRestMethod() {
-        return Request.Method.GET;
-    }
+    /**
+     * 设置对象的关系，一般在post方法中使用，且用户多表关联
+     */
+    public PostMethod setRelation(Relation relation);
+
 }
