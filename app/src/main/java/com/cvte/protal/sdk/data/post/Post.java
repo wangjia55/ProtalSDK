@@ -21,6 +21,11 @@ public class Post extends BaseProtalMethodImpl implements PostMethod {
         return Request.Method.GET;
     }
 
+    public PostMethod post(String name) {
+        addPath(name, null);
+        return this;
+    }
+
     public PostMethod post(CloudData cloudData) {
         addPath(cloudData.getClass().getSimpleName().toLowerCase(), null);
         return this;

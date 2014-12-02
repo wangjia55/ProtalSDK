@@ -16,6 +16,19 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <meta-data
+            android:name="cvte_server_ip"
+            android:value="http://121.199.53.253"/>
+
+        <meta-data
+            android:name="app_key"
+            android:value="sglzvz"/>
+
+        <meta-data
+            android:name="app_secret"
+            android:value="8388ee0f92eb45918752e0f7d83493d7"/>
+
     </application>
 
 </manifest>

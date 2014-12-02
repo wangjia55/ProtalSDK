@@ -18,6 +18,7 @@ import com.cvte.protal.sdk.exception.MissingManifestConfigException;
 public class ManifestMetadata {
     private static final String SERVER_ID = "cvte_server_ip";
     private static final String APP_KEY = "app_key";
+    public static final String APP_SECRET = "app_secret";
     private static final String SERVER_IP = "http://121.199.53.253";
 
     private static Object readKey(Context context, String keyName) throws PackageManager.NameNotFoundException {
@@ -60,6 +61,17 @@ public class ManifestMetadata {
             throw new MissingManifestConfigException("Request app_key in AndroidManifest.xml");
         }
         return appKey;
+    }
+
+    /**
+     * 获取manifest中配置的APP_SECRET
+     */
+    public static String getAppSecret(Context context) {
+        String appSecret = getString(context, APP_SECRET);
+        if (appSecret == null) {
+            throw new MissingManifestConfigException("Request app_secret in AndroidManifest.xml");
+        }
+        return appSecret;
     }
 
 }
