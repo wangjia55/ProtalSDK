@@ -19,16 +19,19 @@
 
         <meta-data
             android:name="cvte_server_ip"
-            android:value="http://121.199.53.253"/>
-
+            android:value="http://121.199.53.253:8080/fly/api" />
+        <!--<meta-data android:name="cvte_server_ip" android:value="http://healthcare.cvtapi.com/fly/api"/>-->
         <meta-data
             android:name="app_key"
-            android:value="sglzvz"/>
+            android:value="avatar" />
 
         <meta-data
             android:name="app_secret"
-            android:value="8388ee0f92eb45918752e0f7d83493d7"/>
+            android:value="83c5624d2cd94e8e9818b18201edb3c9" />
 
     </application>
+
+
+    <uses-permission android:name="android.permission.INTERNET" />
 
 </manifest>

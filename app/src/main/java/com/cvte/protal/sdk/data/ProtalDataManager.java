@@ -96,4 +96,12 @@ public final class ProtalDataManager {
         return post.post("accounts");
     }
 
+
+    /**
+     * 设置是否开关打印信息，默认是打开的
+     */
+    public static void setDebugMode(boolean mode){
+        CloudConfig.DEBUG  = mode;
+    }
+
 }

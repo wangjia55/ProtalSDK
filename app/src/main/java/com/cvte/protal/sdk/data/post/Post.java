@@ -18,7 +18,7 @@ public class Post extends BaseProtalMethodImpl implements PostMethod {
 
     @Override
     protected int getRestMethod() {
-        return Request.Method.GET;
+        return Request.Method.POST;
     }
 
     public PostMethod post(String name) {

@@ -8,6 +8,7 @@ import android.widget.EditText;
 
 import com.cvte.protal.sdk.data.ProtalDataManager;
 import com.cvte.protal.sdk.data.listener.ProtalResponseListener;
+import com.cvte.protal.sdk.tools.LogUtils;
 
 
 public class MyActivity extends Activity {
@@ -15,12 +16,14 @@ public class MyActivity extends Activity {
     private EditText mEditTextname;
     private EditText mEditTextpwd;
     private Button mButtonlogin;
+    private ProtalDataManager mDataManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my);
-        ProtalDataManager manager = new ProtalDataManager(getApplicationContext());
+        mDataManager = new ProtalDataManager(getApplicationContext());
+        ProtalDataManager.setDebugMode(true);
 //        manager.postData(new Student()).execute(
 //                new ResponseListener());
 //
@@ -42,8 +45,18 @@ public class MyActivity extends Activity {
         mButtonlogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ProtalDataManager manager = new ProtalDataManager(getApplicationContext());
-                manager.login(mEditTextname.getText().toString(),mEditTextpwd.getText().toString()).execute(new ResponseListener());
+                mDataManager.login(mEditTextname.getText().toString(),
+                        mEditTextpwd.getText().toString())
+                        .execute(new ResponseListener());
+            }
+        });
+
+        findViewById(R.id.button_register).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mDataManager.register(mEditTextname.getText().toString(),
+                        mEditTextpwd.getText().toString())
+                        .execute(new ResponseListener());
             }
         });
     }
@@ -53,11 +66,12 @@ public class MyActivity extends Activity {
         @Override
         public void get(String response) {
             super.get(response);
+            LogUtils.LOGE("reponse:",response.toString());
         }
 
         @Override
         public void Exception(Exception e) {
-
+            LogUtils.LOGE("Exception:",e.getMessage());
         }
     }
 }

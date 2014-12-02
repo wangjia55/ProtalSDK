@@ -14,6 +14,7 @@
         android:id="@+id/editText_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:text="13802725509"
         android:hint="name"/>
 
     <EditText
@@ -21,6 +22,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
+        android:text="000000"
         android:hint="pwd"/>
 
     <Button
@@ -29,4 +31,10 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:text="LOGIN"/>
+    <Button
+        android:id="@+id/button_register"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="REGISTER"/>
 </LinearLayout>
